@@ -1,4 +1,3 @@
 node_modules/
-README.md
-README 2.md
-config/keys.js
+.DS_Store
+Intructions/
