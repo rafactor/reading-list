@@ -47,8 +47,12 @@ class Search extends Component {
       console.log(this.state.results)
   }
 
-  saveBook = (id) => {
-    console.log(id)
+  saveBook = (bookData) => {
+    API.saveBook(bookData)
+    .then(res=> {
+      console.log(res)
+    })
+    .catch(err => console.log(err))
   }
   
   handleFormSubmit = event => {

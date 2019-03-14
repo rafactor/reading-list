@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Mern Demo",
   "private": true,
-  "proxy": "http://localhost:3001/",
+  "proxy": "http://localhost:4500/",
   "dependencies": {
     "materialize-css": "^1.0.0",
     "node-sass": "^4.11.0",
