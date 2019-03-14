@@ -28,7 +28,7 @@ class Search extends Component {
         console.log(docs)
         console.log(result)
 
-        this.setState({ results: result, listHeading: "Search Results" })
+        this.setState({ results: result})
       }
        
       )
@@ -74,13 +74,14 @@ class Search extends Component {
         handleInputChange={this.handleInputChange}
         />
         <BookList listHeading={this.state.listHeading}>
+
+      {this.state.results.books ? 
             <BookListItem 
-                title={this.state.results.title}
-                description={this.state.results.description}
-                image={this.state.results.image}
-                link={this.state.results.link}
-                authors={this.state.results.authors}
+             books={this.state.results.books}
             />
+            :
+            ""
+      }
 
         </BookList>
       </div>

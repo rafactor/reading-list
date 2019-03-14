@@ -10,12 +10,15 @@ export function BookList(props) {
 }
 
 export function BookListItem(props){
+    console.log(props.books)
     return (
-        <li className="saved-books__item">
+        <div>
+        {props.books.map(book => (
+            <li className="saved-books__item">
                             <div className="row">
                                 <div className="col s10">
-                                    <h3>{props.title}</h3>
-                                    <p>{props.authors}</p>
+                                    <h6>{book.title}</h6>
+                                    <p>{book.authors}</p>
                                 </div>
                                 <div className="col s2">
                                     <a className="waves-effect waves-light btn">View</a>
@@ -33,5 +36,8 @@ export function BookListItem(props){
                                 </div>
                             </div>
                         </li>
+        ))}
+        
+        </div>
     )
 }
