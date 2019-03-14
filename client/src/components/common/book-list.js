@@ -14,7 +14,7 @@ export function BookListItem(props){
     return (
         <div>
         {props.books.map(book => (
-            <li className="books-item">
+            <li className={`books-item ${book.key}`} >
                             <div className="row">
                                 <div className="col s10">
                                     <h6 className={`books-item__title ${book.key}`}>{book.title}</h6>
@@ -25,11 +25,21 @@ export function BookListItem(props){
                                         href={book.link}
                                         target="_blank"
                                     >View</a>
-                                    <a className="waves-effect waves-light btn-small"
+                                    {(book.listHeading === "Saved Books") ? 
+                                        <a className="waves-effect waves-light btn-small"
                                         onClick={e => props.saveBook(book)}
                                         >Save
-                                    {/* <i className="material-icons left">Save</i> */}
-                                    </a>
+                                        {/* <i className="material-icons left">Save</i> */}
+                                        </a>
+                                     :
+                                        <a className="waves-effect waves-light btn-small"
+                                        onClick={e => props.deleteBook(book.id)}
+                                        >Delete
+                                        {/* <i className="material-icons left">Save</i> */}
+                                        </a>
+
+                                }
+                                    
                                 </div>
                             </div>
                             <div className="row">

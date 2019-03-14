@@ -13,6 +13,14 @@ export default {
   saveBook: (bookData) => {
     return axios.post(server + "/api/books", bookData);
   },
+
+  getBooks: () => {
+    return axios.get(server + "/api/books/");
+  },
+
+   deleteBook: function(id) {
+    return axios.delete(server + "/api/books/" + id);
+  }
   // // Gets the book with the given id
   // getBook: function(id) {
   //   return axios.get("/api/books/" + id);
