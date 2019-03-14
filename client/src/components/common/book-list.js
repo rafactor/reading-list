@@ -14,25 +14,30 @@ export function BookListItem(props){
     return (
         <div>
         {props.books.map(book => (
-            <li className="saved-books__item">
+            <li className="books-item">
                             <div className="row">
                                 <div className="col s10">
-                                    <h6>{book.title}</h6>
-                                    <p>{book.authors}</p>
+                                    <h6 className={`books-item__title ${book.key}`}>{book.title}</h6>
+                                    <p className="books-item__authors">{(book.authors) ? `by ${book.authors}` : null }</p>
                                 </div>
                                 <div className="col s2">
-                                    <a className="waves-effect waves-light btn">View</a>
-                                    <a className="waves-effect waves-light btn-small">
-                                    <i className="material-icons left">Delete</i>
+                                    <a className="waves-effect waves-light btn"
+                                        href={book.link}
+                                        target="_blank"
+                                    >View</a>
+                                    <a className="waves-effect waves-light btn-small"
+                                        onClick={e => props.saveBook(book)}
+                                        >Save
+                                    {/* <i className="material-icons left">Save</i> */}
                                     </a>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col s4">
-                                    <img src={props.image} />
+                                    <img className="books-item__image" src={book.image} />
                                 </div>
                                 <div className="col s8">
-                                    <p>{props.description}</p>
+                                    <p className="books-item__description">{book.description}</p>
                                 </div>
                             </div>
                         </li>

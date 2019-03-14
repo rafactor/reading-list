@@ -9,8 +9,8 @@ export default {
     return axios.get(url);
   },
 
-  test: function() {
-    return axios.get("/api/auth/test");
+  saveBook: (bookData) => {
+    return axios.post("/api/books", bookData);
   },
   // // Gets the book with the given id
   // getBook: function(id) {

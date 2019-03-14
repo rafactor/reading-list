@@ -21,7 +21,8 @@ class Search extends Component {
                     description: doc.volumeInfo.description,
                     authors: doc.volumeInfo.authors,
                     image: doc.volumeInfo.imageLinks.thumbnail,
-                    link: doc.volumeInfo.infoLink
+                    link: doc.volumeInfo.infoLink,
+                    key: doc.id
                 }
             })
         }
@@ -44,6 +45,10 @@ class Search extends Component {
 
   loadBooks = () => {
       console.log(this.state.results)
+  }
+
+  saveBook = (id) => {
+    console.log(id)
   }
   
   handleFormSubmit = event => {
@@ -78,6 +83,7 @@ class Search extends Component {
       {this.state.results.books ? 
             <BookListItem 
              books={this.state.results.books}
+             saveBook={this.saveBook}
             />
             :
             ""
