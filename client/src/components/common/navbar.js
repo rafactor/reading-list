@@ -18,9 +18,9 @@ export default class NavBar extends Component {
       <div>
       <nav className="nav-extended">
         <div className="nav-wrapper">
-          <a href="#" className="brand-logo">
+          <div className="brand-logo">
             Logo
-          </a>
+          </div>
           <a href="#" data-target="mobile-demo" className="sidenav-trigger">
             <i className="material-icons">menu</i>
           </a>

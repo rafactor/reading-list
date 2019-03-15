@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import NavBar from "./components/common/navbar"
 import Saved from "./views/saved"
 import Search from "./views/search"
 
 import 'materialize-css/dist/css/materialize.min.css'
-import M from 'materialize-css';
 import "./App.scss";
 
 class App extends Component {

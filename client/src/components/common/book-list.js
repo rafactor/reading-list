@@ -21,22 +21,23 @@ export function BookListItem(props){
                                     <p className="books-item__authors">{(book.authors) ? `by ${book.authors}` : null }</p>
                                 </div>
                                 <div className="col s4">
-                                    <a className="waves-effect waves-light btn"
+                                    <button className="waves-effect waves-light btn-small"
                                         href={book.link}
                                         target="_blank"
-                                    >View</a>
+                                        rel="noopener noreferrer"
+                                    >View</button>
                                     {(props.listHeading !== "Saved Books") ? 
-                                        <a className="waves-effect waves-light btn-small"
+                                        <button className="waves-effect waves-light btn-small"
                                         onClick={e => props.saveBook(book)}
                                         >Save
                                         {/* <i className="material-icons left">save</i> */}
-                                        </a>
+                                        </button>
                                      :
-                                        <a className="waves-effect waves-light btn-small"
+                                        <button className="waves-effect waves-light btn-small"
                                         onClick={e => props.deleteBook(book.id)}
                                         >Delete
                                         {/* <i className="material-icons left">Save</i> */}
-                                        </a>
+                                        </button>
 
                                 }
                                     
@@ -44,7 +45,7 @@ export function BookListItem(props){
                             </div>
                             <div className="row">
                                 <div className="col s4">
-                                    <img className="books-item__image" src={book.image} />
+                                    <img className="books-item__image" alt="book cover" src={book.image} />
                                 </div>
                                 <div className="col s8">
                                     <p className="books-item__description">{book.description}</p>
