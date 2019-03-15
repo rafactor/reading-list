@@ -10,26 +10,26 @@ export function BookList(props) {
 }
 
 export function BookListItem(props){
-    console.log(props.books)
+    console.log(props.listHeading)
     return (
         <div>
         {props.books.map(book => (
             <li className={`books-item ${book.key}`} >
                             <div className="row">
-                                <div className="col s10">
+                                <div className="col s8">
                                     <h6 className={`books-item__title ${book.key}`}>{book.title}</h6>
                                     <p className="books-item__authors">{(book.authors) ? `by ${book.authors}` : null }</p>
                                 </div>
-                                <div className="col s2">
+                                <div className="col s4">
                                     <a className="waves-effect waves-light btn"
                                         href={book.link}
                                         target="_blank"
                                     >View</a>
-                                    {(book.listHeading === "Saved Books") ? 
+                                    {(props.listHeading !== "Saved Books") ? 
                                         <a className="waves-effect waves-light btn-small"
                                         onClick={e => props.saveBook(book)}
                                         >Save
-                                        {/* <i className="material-icons left">Save</i> */}
+                                        {/* <i className="material-icons left">save</i> */}
                                         </a>
                                      :
                                         <a className="waves-effect waves-light btn-small"

@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { BookList, SearchBox, BookListItem } from "../components/common/index";
 import API from "../utils/API"
+import 'materialize-css/dist/css/materialize.min.css'
+import M from 'materialize-css';
+import NavBar from "../components/common/navbar"
 
 class Search extends Component {
   state = {
@@ -8,6 +11,10 @@ class Search extends Component {
     results: [],
     listHeading: "Search Books"
   };
+
+  componentDidMount(){
+    M.AutoInit();
+}
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -55,22 +62,28 @@ class Search extends Component {
 
   render() {
     return (
-      <div className="container">
-        <SearchBox 
-        state={this.state} 
-        handleFormSubmit={this.handleFormSubmit} 
-        handleInputChange={this.handleInputChange}
-        />
+      <div>
+        <NavBar />
 
-      {this.state.results.books ?   
-           <BookList listHeading={this.state.listHeading}>
-                <BookListItem 
+        <div className="container">
+          <SearchBox
+            state={this.state}
+            handleFormSubmit={this.handleFormSubmit}
+            handleInputChange={this.handleInputChange}
+          />
+
+          {this.state.results.books ? (
+            <BookList listHeading={this.state.listHeading}>
+              <BookListItem
                 books={this.state.results.books}
                 saveBook={this.saveBook}
-                />
-          </BookList>
-        : ""
-      }
+                listHeading={this.state.listHeading}
+              />
+            </BookList>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
     );
   }

@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { BookList, BookListItem } from "../components/common/index"
+import NavBar from "../components/common/navbar"
 import API from "../utils/API"
+import 'materialize-css/dist/css/materialize.min.css'
+import M from 'materialize-css';
 class Saved extends Component {
     state = {
         results: [],
@@ -8,6 +11,7 @@ class Saved extends Component {
       };
 
     componentDidMount(){
+        M.AutoInit();
         this.loadbooks()
     }
 
@@ -23,7 +27,7 @@ class Saved extends Component {
                         description: (doc.description) ? doc.description : "no description availble",
                         authors: (doc.authors) ? doc.authors : "author unknown",
                         image: doc.image,
-                        link: doc.infoLink,
+                        link: doc.link,
                         id: doc._id,
                         key: doc.id
                     }
@@ -50,22 +54,26 @@ class Saved extends Component {
     
 
     render() {
+        console.log(this.state.results)
         return (
             <div>
-            {this.state.results.books ? 
+            <NavBar />   
+
+            {(this.state.results.count > 0) ? 
                 <div className="container">
                   <BookList listHeading={this.state.listHeading}>
                       <BookListItem 
                         books={this.state.results.books}
                         saveBook={this.saveBook}
                         deleteBook={this.deleteBook}
+                        listHeading={this.state.listHeading}
                         />             
                   </BookList>
                  </div>
             
             :
-                <div>
-                    "You don't have any book saved"
+                <div className="book-list__empty">
+                    You don't have any book saved
                 </div>
            }
            </div>

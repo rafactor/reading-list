@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { NavBar } from "./components/common"
+import NavBar from "./components/common/navbar"
 import Saved from "./views/saved"
 import Search from "./views/search"
-import Home from "./views/home"
 
 import 'materialize-css/dist/css/materialize.min.css'
 import M from 'materialize-css';
@@ -15,20 +14,15 @@ class App extends Component {
     user: ""
   }
 
-  
-  componentDidMount(){
-    M.AutoInit();
-  }
 
   render() {
     return (
       <div>
-      <NavBar />
      <Router>
         <div>
          
 
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Search} />
           <Route exact path="/saved" component={Saved} />
           <Route exact path="/search" component={Search} />
 
