@@ -54,8 +54,9 @@ app.use((req, res, next) => {
 });
 
 //connect to mongoDB keys.mongodb.dbURI ||
-mongoose.connect("mongodb://localhost/" + localDB ,()=> {
-  console.log('connected to mongo DB')
+// mongoose.connect(keys.mongodb.dbURI ||"mongodb://localhost/" + localDB ,()=> {
+mongoose.connect(keys.mongodb.dbURI,()=> {
+    console.log('connected to mongo DB')
 })
 
 //added for ejs test
@@ -71,9 +72,9 @@ app.use(routes);
 
 // Send every other request to the React app
 // Define any API routes before this runs
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);

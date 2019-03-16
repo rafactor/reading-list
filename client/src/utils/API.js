@@ -1,5 +1,5 @@
 import axios from "axios";
-const server = "http://localhost:4500"
+const server = ""
 
 export default {
   // Gets all books
@@ -11,15 +11,15 @@ export default {
   },
 
   saveBook: (bookData) => {
-    return axios.post(server + "/api/books", bookData);
+    return axios.post("/api/books", bookData);
   },
 
   getBooks: () => {
-    return axios.get(server + "/api/books/");
+    return axios.get("/api/books/");
   },
 
    deleteBook: function(id) {
-    return axios.delete(server + "/api/books/" + id);
+    return axios.delete("/api/books/" + id);
   }
   // // Gets the book with the given id
   // getBook: function(id) {
