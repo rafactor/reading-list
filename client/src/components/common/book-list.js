@@ -21,11 +21,11 @@ export function BookListItem(props){
                                     <p className="books-item__authors">{(book.authors) ? `by ${book.authors}` : null }</p>
                                 </div>
                                 <div className="col s4">
-                                    <button className="waves-effect waves-light btn-small"
+                                    <a className="waves-effect waves-light btn-small"
                                         href={book.link}
                                         target="_blank"
-                                        rel="noopener noreferrer"
-                                    >View</button>
+                                        // rel="noopener noreferrer"
+                                    >View</a>
                                     {(props.listHeading !== "Saved Books") ? 
                                         <button className="waves-effect waves-light btn-small"
                                         onClick={e => props.saveBook(book)}

@@ -1,3 +1,8 @@
 node_modules/
 .DS_Store
 Intructions/
+
+src/*
+public/*
+build/static/css/*.map
+build/static/js/*.map

@@ -8,20 +8,16 @@ import M from 'materialize-css';
 
 export default class NavBar extends Component {
 
-  componentDidMount(){
-    M.AutoInit();
-}
-
   render() {
   return (
-    <Router>
+    // <Router>
       <div>
       <nav className="nav-extended">
         <div className="nav-wrapper">
           <div className="brand-logo">
-            Logo
+            Google Books
           </div>
-          <a href="#" data-target="mobile-demo" className="sidenav-trigger">
+          <a href="/" data-target="mobile-demo" className="sidenav-trigger">
             <i className="material-icons">menu</i>
           </a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
@@ -33,8 +29,8 @@ export default class NavBar extends Component {
             </li>
           </ul>
 
-          <Route path="/search" component={Search} />
-          <Route path="/saved" component={Saved} />
+          {/* <Route path="/search" component={Search} />
+          <Route path="/saved" component={Saved} /> */}
 
         </div>
       </nav>
@@ -48,7 +44,7 @@ export default class NavBar extends Component {
         </li>
       </ul>
       </div>
-    </Router>
+    // </Router>
   );
         }
 }

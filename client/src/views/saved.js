@@ -3,22 +3,27 @@ import { BookList, BookListItem } from "../components/common/index"
 import NavBar from "../components/common/navbar"
 import API from "../utils/API"
 import 'materialize-css/dist/css/materialize.min.css'
+
 import M from 'materialize-css';
+
 class Saved extends Component {
     state = {
-        results: [],
+        results: {
+            count: 0,
+            books: [],
+        },
         listHeading: "Saved Books"
       };
 
     componentDidMount(){
-        M.AutoInit();
+        // M.AutoInit();
         this.loadbooks()
     }
 
     loadbooks = () => {
         API.getBooks()
         .then(docs => {
-            console.log(docs)
+            // console.log(docs)
             const result = {
                 count: docs.data.length,
                 books: docs.data.map(doc => {
@@ -33,7 +38,6 @@ class Saved extends Component {
                     }
                 })
             }
-            console.log(result)
             this.setState({ results: result })
         })
         .catch(err => {
@@ -55,12 +59,18 @@ class Saved extends Component {
 
     render() {
         console.log(this.state.results)
+        // return(
+        //     <div>
+        //         <NavBar />   
+        //         Test
+        //     </div>
+        // )
         return (
             <div>
             <NavBar />   
-
-            {(this.state.results.count > 0) ? 
-                <div className="container">
+            
+            {/* {(this.state.results.count > 0) ?  */}
+                <div className="container">test
                   <BookList listHeading={this.state.listHeading}>
                       <BookListItem 
                         books={this.state.results.books}
@@ -71,11 +81,11 @@ class Saved extends Component {
                   </BookList>
                  </div>
             
-            :
+            {/* :
                 <div className="book-list__empty">
                     You don't have any book saved
                 </div>
-           }
+           } */}
            </div>
           );
     }
