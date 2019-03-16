@@ -70,7 +70,7 @@ class Saved extends Component {
             <NavBar />   
             
             {/* {(this.state.results.count > 0) ?  */}
-                <div className="container">test
+                <div className="container">
                   <BookList listHeading={this.state.listHeading}>
                       <BookListItem 
                         books={this.state.results.books}
