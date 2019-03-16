@@ -10,7 +10,7 @@ export default class NavBar extends Component {
 
   render() {
   return (
-    // <Router>
+  
       <div>
       <nav className="nav-extended">
         <div className="nav-wrapper">
@@ -29,9 +29,6 @@ export default class NavBar extends Component {
             </li>
           </ul>
 
-          {/* <Route path="/search" component={Search} />
-          <Route path="/saved" component={Saved} /> */}
-
         </div>
       </nav>
 
@@ -44,7 +41,7 @@ export default class NavBar extends Component {
         </li>
       </ul>
       </div>
-    // </Router>
+ 
   );
         }
 }

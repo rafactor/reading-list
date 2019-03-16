@@ -53,8 +53,8 @@ app.use((req, res, next) => {
   next();
 });
 
-//connect to mongoDB keys.mongodb.dbURI ||
-// mongoose.connect(keys.mongodb.dbURI ||"mongodb://localhost/" + localDB ,()=> {
+// connect to mongoDB keys.mongodb.dbURI ||
+// mongoose.connect("mongodb://localhost/" + localDB ,()=> {
 mongoose.connect(keys.mongodb.dbURI,()=> {
     console.log('connected to mongo DB')
 })
@@ -72,9 +72,9 @@ app.use(routes);
 
 // Send every other request to the React app
 // Define any API routes before this runs
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/"));
+});
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
